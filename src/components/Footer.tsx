@@ -20,6 +20,9 @@ export function Footer() {
             <p className="text-xs text-muted-foreground font-light">
               © 2026 Ranjit Singh Masuta SWISS. All Rights Reserved.
             </p>
+            <p className="text-xs text-muted-foreground font-light mt-0.5">
+              Developed by <Link href="https://wa.me/923327167222" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary transition-colors">Nitesh Bhatia</Link> with ❤️
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-3">
