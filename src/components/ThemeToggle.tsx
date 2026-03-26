@@ -6,11 +6,21 @@ import { useTheme } from "next-themes";
 import clsx from "clsx";
 
 export function ThemeToggle({ isTransparent }: { isTransparent?: boolean }) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  // Avoid hydration mismatch
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-9 w-9" />;
+  }
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className={clsx(
         "relative inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors",
         isTransparent 
